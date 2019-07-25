@@ -1,0 +1,76 @@
+
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+	id "org.asciidoctor.convert" version "1.5.9.2"
+}
+
+ext {
+	lombokVersion = "1.18.8"
+	swagger2Version = '2.9.2'
+	oldSwagger2Version = '1.5.21'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.google.knight76'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	snippetsDir = file('build/generated-snippets')
+}
+
+test {
+	outputs.dir snippetsDir
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+bootJar {
+	dependsOn asciidoctor
+	from ("${asciidoctor.outputDir}/html5") {
+		into 'static/docs'
+	}
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation('org.springframework.boot:spring-boot-starter-web') {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+	implementation "org.projectlombok:lombok:${lombokVersion}"
+	implementation 'org.springframework.boot:spring-boot-starter-undertow'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
+}
+//
+//asciidoctor {
+//	attributes 'snippets': snippetsDir
+//	inputs.dir snippetsDir
+//	outputDir "build/asciidoc"
+//	dependsOn test
+//	sourceDir 'src/main/asciidoc'
+//}
+//
+//task copyRestDocs(type: Copy) {
+//	dependsOn asciidoctor
+//	from "${asciidoctor.outputDir}/html5"
+//	into "${sourceSets.main.output.resourcesDir}/static/docs"
+//}
+//
+//bootRun {
+//	dependsOn copyRestDocs
+//}
+//
+
+

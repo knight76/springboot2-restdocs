@@ -1,0 +1,5 @@
+= test
+== test
+include::{snippets}/product-controller-test/상품_등록/http-request.adoc[]
+include::{snippets}/product-controller-test/상품_등록/request-fields.adoc[]
+include::{snippets}/product-controller-test/상품_등록/http-response.adoc[]
