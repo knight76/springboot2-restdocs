@@ -127,11 +127,13 @@ public class CitiesControllerTest extends ParentTest {
 	public void deleteCity() throws Exception {
 		// given
 		String response = "{'deleted':true}";
-		cityService.add(new City(10L, "Bratislava", 432000));
+		City CityToDelete = new City(1L, "Bratislava", 432000);
+		when(cityService.get(1L)).thenReturn(Optional.of(CityToDelete));
+		when(cityService.delete(CityToDelete)).thenReturn(true);
 
 		// when
 		ResultActions result =
-				mockMvc.perform(delete("/api/1/city/{id}", 10L)
+				mockMvc.perform(delete("/api/1/city/{id}", 1L)
 						                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 				       .andDo(print());
 
