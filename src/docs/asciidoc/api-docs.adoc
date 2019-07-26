@@ -28,3 +28,45 @@ include::{snippets}/hello-world-test/hello-world-json/response-fields.adoc[]
 include::{snippets}/hello-world-test/hello-world-json/httpie-request.adoc[]
 include::{snippets}/hello-world-test/hello-world-json/request-parameters.adoc[]
 
+== City (add-city)
+
+include::{snippets}/cities-controller-test/add-city/http-request.adoc[]
+include::{snippets}/cities-controller-test/add-city/curl-request.adoc[]
+include::{snippets}/cities-controller-test/add-city/http-response.adoc[]
+include::{snippets}/cities-controller-test/add-city/request-body.adoc[]
+include::{snippets}/cities-controller-test/add-city/response-body.adoc[]
+include::{snippets}/cities-controller-test/add-city/response-fields.adoc[]
+include::{snippets}/cities-controller-test/add-city/request-parameters.adoc[]
+
+
+== City (delete-city)
+
+include::{snippets}/cities-controller-test/delete-city/http-request.adoc[]
+include::{snippets}/cities-controller-test/delete-city/curl-request.adoc[]
+include::{snippets}/cities-controller-test/delete-city/http-response.adoc[]
+include::{snippets}/cities-controller-test/delete-city/request-body.adoc[]
+include::{snippets}/cities-controller-test/delete-city/response-body.adoc[]
+include::{snippets}/cities-controller-test/delete-city/response-fields.adoc[]
+include::{snippets}/cities-controller-test/delete-city/request-parameters.adoc[]
+
+== City (get-cities)
+
+include::{snippets}/cities-controller-test/get-cities/http-request.adoc[]
+include::{snippets}/cities-controller-test/get-cities/curl-request.adoc[]
+include::{snippets}/cities-controller-test/get-cities/http-response.adoc[]
+include::{snippets}/cities-controller-test/get-cities/request-body.adoc[]
+include::{snippets}/cities-controller-test/get-cities/response-body.adoc[]
+include::{snippets}/cities-controller-test/get-cities/response-fields.adoc[]
+include::{snippets}/cities-controller-test/get-cities/request-parameters.adoc[]
+
+
+== City (get-city)
+
+include::{snippets}/cities-controller-test/get-city/http-request.adoc[]
+include::{snippets}/cities-controller-test/get-city/curl-request.adoc[]
+include::{snippets}/cities-controller-test/get-city/http-response.adoc[]
+include::{snippets}/cities-controller-test/get-city/request-body.adoc[]
+include::{snippets}/cities-controller-test/get-city/response-body.adoc[]
+include::{snippets}/cities-controller-test/get-city/path-parameters.adoc[]
+include::{snippets}/cities-controller-test/get-city/response-fields.adoc[]
+include::{snippets}/cities-controller-test/get-city/request-parameters.adoc[]
