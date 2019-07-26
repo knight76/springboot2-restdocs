@@ -2,14 +2,19 @@
 
 ### Compile & Run boot
 ```
-gradle clean bootRun
+gradle clean build bootRun
 ```
 
-### Compile & Package
+### Create snippet(asciidoc) & Build
+```
+gradle clean build
+```
+created build/asciidoc/html5
 
-```
-gradle clean bootJar
-```
+
+### Copy generated files to resources/static
+Copy build/asciidoc/html5/*.adoc to 
+
 
 ### Run Springboot
 
@@ -17,7 +22,8 @@ gradle clean bootJar
 java -jar build/libs/api-restdocs-0.0.1-SNAPSHOT.jar
 ```
 
-### Create snippet(asciidoc)
+
+### Api-docs URL
 ```
-gradle clean build
+http://localhost:8080/api-docs.html
 ```

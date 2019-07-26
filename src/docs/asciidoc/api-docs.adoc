@@ -1,0 +1,30 @@
+:sectnums:
+:sectnumlevels: 5
+:toc: left
+:toclevels: 3
+:page-layout: docs
+
+
+= Hello World
+
+== Hello World (Plain)
+
+include::{snippets}/hello-world-test/hello-world/http-request.adoc[]
+include::{snippets}/hello-world-test/hello-world/curl-request.adoc[]
+include::{snippets}/hello-world-test/hello-world/http-response.adoc[]
+include::{snippets}/hello-world-test/hello-world/request-body.adoc[]
+include::{snippets}/hello-world-test/hello-world/response-body.adoc[]
+include::{snippets}/hello-world-test/hello-world/httpie-request.adoc[]
+
+
+== Hello World (Json)
+
+include::{snippets}/hello-world-test/hello-world-json/http-request.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/curl-request.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/http-response.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/request-body.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/response-body.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/response-fields.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/httpie-request.adoc[]
+include::{snippets}/hello-world-test/hello-world-json/request-parameters.adoc[]
+

@@ -1,9 +1,24 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+
+	dependencies {
+		classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.9'
+	}
+}
+
 
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
-	id 'java'
-	id "org.asciidoctor.convert" version "1.5.9.2"
+	id "org.asciidoctor.convert" version "1.5.9"
 }
+
+apply plugin: 'org.asciidoctor.convert'
+apply plugin : 'java'
+apply plugin : 'io.spring.dependency-management'
+apply plugin : 'org.asciidoctor.convert'
 
 ext {
 	lombokVersion = "1.18.8"
@@ -11,15 +26,11 @@ ext {
 	oldSwagger2Version = '1.5.21'
 }
 
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.google.knight76'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-repositories {
-	mavenCentral()
-}
 
 ext {
 	snippetsDir = file('build/generated-snippets')
@@ -37,10 +48,9 @@ asciidoctor {
 bootJar {
 	dependsOn asciidoctor
 	from ("${asciidoctor.outputDir}/html5") {
-		into 'static/docs'
+		into 'static'
 	}
 }
-
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -50,27 +60,7 @@ dependencies {
 	implementation "org.projectlombok:lombok:${lombokVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-undertow'
 
+	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
-//
-//asciidoctor {
-//	attributes 'snippets': snippetsDir
-//	inputs.dir snippetsDir
-//	outputDir "build/asciidoc"
-//	dependsOn test
-//	sourceDir 'src/main/asciidoc'
-//}
-//
-//task copyRestDocs(type: Copy) {
-//	dependsOn asciidoctor
-//	from "${asciidoctor.outputDir}/html5"
-//	into "${sourceSets.main.output.resourcesDir}/static/docs"
-//}
-//
-//bootRun {
-//	dependsOn copyRestDocs
-//}
-//
-
-
