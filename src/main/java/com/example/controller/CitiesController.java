@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +22,15 @@ import com.example.model.City;
 import com.example.service.CityService;
 
 @RestController
-@RequestMapping("/api/1")
+@RequestMapping(path="/api/1",
+		consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+		produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class CitiesController {
 
 	@Autowired
 	private CityService cityService;
 
-	@GetMapping(value = "/cities")
+	@GetMapping("/cities")
 	public List<City> getCities() {
 		List<City> cities = cityService.findAll();
 		return cities;

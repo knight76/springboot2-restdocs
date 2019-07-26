@@ -51,9 +51,9 @@ public class HelloWorldTest extends ParentTest {
 		result.andExpect(status().isOk())
 		      .andDo(document.document(
 		                      requestParameters(
-		                      		parameterWithName("name").description("Name")),
+		                      		parameterWithName("name").description("이름입니다.")),
 							  responseFields(
-							  		fieldWithPath("result").description("결과"))))
+							  		fieldWithPath("result").description("결과입니다."))))
 		      .andExpect(jsonPath("result", is(notNullValue())))
 		      .andExpect(content().string(response));
 	}
