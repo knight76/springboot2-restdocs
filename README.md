@@ -12,8 +12,8 @@ gradle clean build
 created build/asciidoc/html5
 
 
-### Copy generated files to resources/static
-Copy build/asciidoc/html5/*.adoc to 
+### Copy generated files to resources/static (can be used by gradle)
+Copy build/asciidoc/html5/*.adoc to resources/static
 
 
 ### Run Springboot
